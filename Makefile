@@ -3,13 +3,16 @@
 NAME = minishell
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 RL_FLAGS = -lreadline
 
-SRC = ./src/main.c ./src/minishell_loop.c ./src/utils/str_utils.c  ./src/tokenizer/tokenizer.c \
+SRC = ./src/main.c ./src/minishell_loop.c \
+./src/utils/str_utils.c  \
+./src/tokenizer/tokenizer.c \
 ./src/tokenizer/tokenizer_utils/ft_check_char.c ./src/tokenizer/tokenizer_utils/handle_special.c \
-./src/tokenizer/tokenizer_utils/handle_word.c ./src/tokenizer/tokenizer_utils/handle_quotes.c\
-./src/tokenizer/tokenizer_utils/ft_handle_escape_sequence.c
+./src/tokenizer/tokenizer_utils/handle_word.c ./src/tokenizer/tokenizer_utils/handle_quotes.c \
+./src/tokenizer/tokenizer_utils/ft_handle_escape_sequence.c \
+./src/parser/parser.c ./src/parser/parser_utils/is_syntax_error.c ./src/parser/parser_utils/is_redirection.c \
 
 OBJ = $(SRC:.c=.o)
 

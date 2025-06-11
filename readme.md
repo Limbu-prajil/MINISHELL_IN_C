@@ -28,11 +28,11 @@
 
 ## Parser
 
-- [ ] Define AST or command node structure
-- [ ] Parse tokens into command blocks
-- [ ] Identify redirections and attach to commands
-- [ ] Handle pipe chains
-- [ ] Handle syntax errors (e.g., unexpected `|`, etc.)
+- [X] Define AST or command node structure
+- [X] Parse tokens into command blocks
+- [X] Identify redirections and attach to commands
+- [X] Handle pipe chains
+- [X] Handle syntax errors (e.g., unexpected `|`, etc.)
 
 ---
 
