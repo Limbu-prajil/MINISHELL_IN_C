@@ -42,7 +42,7 @@ char *handle_quoted_esc_chars(const char *src, size_t len)
         if (src[i] == '\\' && (i + 1) < len)
         {
             next = src[i + 1];
-            if (next == '"' || next == '\\' || next == '"' || next == '`')
+            if (next == '"' || next == '\\' || next == '`')
             {
                 result[j++] = next;
                 i += 2;
