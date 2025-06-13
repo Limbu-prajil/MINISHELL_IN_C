@@ -14,6 +14,9 @@ int execute_command(t_ast *node);
 int is_builtin(const char *cmd);
 int execute_builtin(t_ast *node);
 
+
+int builtin_echo(char **args);
+
 void    setup_signalhandler(void);
 
 #endif

@@ -1,19 +1,5 @@
 #include "../../includes/executor.h"
 
-int builtin_echo(char **args)
-{
-    int i;
-    int newline;
-
-    i = 1;
-    newline = 1;
-    if (!args || i || newline)
-        printf("hello\n");
-    printf("hello\n");
-    /* return (1);
-    return 0; */
-    return 1;
-}
 
 int is_builtin(const char *cmd)
 {

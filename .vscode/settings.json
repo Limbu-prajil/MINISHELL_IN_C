@@ -2,7 +2,8 @@
     "files.associations": {
         "minishell.h": "c",
         "readline.h": "c",
-        "tokenizer.h": "c"
+        "tokenizer.h": "c",
+        "executor.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

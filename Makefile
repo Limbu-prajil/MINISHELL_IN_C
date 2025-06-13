@@ -14,7 +14,8 @@ SRC = ./src/main.c ./src/minishell_loop.c \
 ./src/tokenizer/tokenizer_utils/ft_handle_escape_sequence.c \
 ./src/parser/parser.c ./src/parser/parser_utils/is_syntax_error.c ./src/parser/parser_utils/is_redirection.c \
 ./src/parser/parser_utils/free_ast.c \
-./src/executor/executor.c
+./src/executor/executor.c \
+./src/executor/builtins/builtin_echo.c
 
 OBJ = $(SRC:.c=.o)
 
