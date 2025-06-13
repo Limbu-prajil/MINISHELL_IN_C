@@ -7,5 +7,6 @@ int ft_isspace(const char c);
 int ft_isspecialchar(const char c);
 char	*ft_strdup(const char *str);
 char *ft_strndup(const char *str, size_t n);
+int isstrequal(const char *s1, const char *s2);
 
 # endif

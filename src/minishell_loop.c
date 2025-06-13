@@ -1,8 +1,9 @@
 #include "../includes/minishell.h"
 #include "../includes/tokenizer.h"
 #include "../includes/parser.h"
+#include "../includes/executor.h"
 
-static char *handle_input(void)
+static t_ast *handle_input(void)
 {
     t_token *tokens;
     char *input = readline("minishell$ ");
@@ -38,23 +39,25 @@ static char *handle_input(void)
     }
     */
     t_ast *ast = parse_tokens(tokens);
-    if (ast)
-    {
-        print_ast(ast, 0);  // 🖨️ Print the AST structure here
-        // (Later you'll execute AST here)
-    }
     free_tokens(tokens);
-    return (input);
+    return (ast);
 }
 void    minishell_loop(void)
 {
-    char *line;
+    t_ast *ast;
 
     while(1)
     {
-        line = handle_input();
-        if (!line)
+        ast = handle_input();
+        if (!ast)
             continue ;
-        free(line);
+        if(ast)
+        {
+            print_ast(ast, 0);
+            execute_ast(ast);
+            free_ast(ast);
+        }
+        //to do execute ast
+        
     }
 }
