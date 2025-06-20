@@ -5,8 +5,10 @@
 #include <stdlib.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <unistd.h>
+#include "env.h"
 
 
-void    minishell_loop(void);
+void    minishell_loop(t_env *env_list);
 
 #endif

@@ -26,7 +26,7 @@ int builtin_echo(char **args)
     i = 1;
     newline = 1;
     if (!args)
-        return (0);
+        return (1);
     while (args[i] && is_n_flag(args[i]))
     {
         newline = 0;
@@ -42,5 +42,5 @@ int builtin_echo(char **args)
     }
     if (newline)
         printf("\n");
-    return (1);
+    return (0);
 }

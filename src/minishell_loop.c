@@ -17,7 +17,7 @@ static t_ast *handle_input(void)
     tokens = tokenize(input);
     if (!tokens)
     {
-        printf("minishell: syntax error: unclosed quote\n");
+        //printf("minishell: syntax error: unclosed quote\n");
         free(input);
         return (NULL);
     }
@@ -30,19 +30,19 @@ static t_ast *handle_input(void)
     }
     else
         printf("syntaxvalid, move to next part\n");
-    /*
+    
     t_token *curr = tokens;
     while (curr)
     {
         printf("Token: type=%d, value='%s'\n", curr->type, curr->value);
         curr = curr->next;
     }
-    */
+   
     t_ast *ast = parse_tokens(tokens);
     free_tokens(tokens);
     return (ast);
 }
-void    minishell_loop(void)
+void    minishell_loop(t_env *env_list)
 {
     t_ast *ast;
 
@@ -54,7 +54,7 @@ void    minishell_loop(void)
         if(ast)
         {
             print_ast(ast, 0);
-            execute_ast(ast);
+            execute_ast(ast, &env_list);
             free_ast(ast);
         }
         //to do execute ast

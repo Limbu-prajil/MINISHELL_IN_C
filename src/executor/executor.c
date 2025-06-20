@@ -15,28 +15,31 @@ int is_builtin(const char *cmd)
         return (0);
 }
 
-int execute_builtin(t_ast *node)
+int execute_builtin(t_ast *node, t_env **env_list)
 {
+    (void)env_list;
     char **args;
-    
+    int status;
+
     args = node->args;
+    status = 0;
     if (isstrequal(args[0], "echo"))
-        return builtin_echo(args);
-    /* else if (isstrequal(args[0], "cd"))
-        return builtin_cd(args);
+        status = builtin_echo(args);
     else if (isstrequal(args[0], "pwd"))
-        return builtin_pwd(args);
-    else if (isstrequal(args[0], "export"))
-        return builtin_export(args);
-    else if (isstrequal(args[0], "unset"))
-        return builtin_unset(args);
+        status = builtin_pwd();
+    else if (isstrequal(args[0], "cd"))
+        status = builtin_cd(args, *env_list);
     else if (isstrequal(args[0], "env"))
-        return builtin_env(args);
+        status = builtin_env(*env_list, args);
+    else if (isstrequal(args[0], "export"))
+        status = builtin_export(args, env_list);
+    /* else if (isstrequal(args[0], "unset"))
+        status = builtin_unset(args);
     else if (isstrequal(args[0], "exit"))
-        return builtin_exit(args); */
-    return (1);
+        status = builtin_exit(args);  */
+    return (status);
 }
-void execute_ast(t_ast *ast)
+void execute_ast(t_ast *ast, t_env **env_list)
 {
     if (!ast)
         return ;
@@ -46,8 +49,7 @@ void execute_ast(t_ast *ast)
             return ;
         if (is_builtin(ast->args[0]))
         {
-            printf("yes inbuilt\n");
-            execute_builtin(ast);
+            execute_builtin(ast, env_list);
         }
         else
             return ;//execute_command(ast);

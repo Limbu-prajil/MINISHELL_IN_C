@@ -44,36 +44,62 @@ t_token *tokenize(const char *input)
     t_token *tokens = NULL;
     size_t i = 0;
 
-    while(input[i])
+    if (!input)
+        return NULL;
+    while (input[i])
     {
         if (ft_isspace(input[i]))
         {
             i++;
-            continue ;
+            continue;
         }
+
+        // Handle combined export-style key="value with spaces"
+        if (!ft_isspecialchar(input[i]) && input[i] != '\'' && input[i] != '"')
+        {
+            size_t start = i;
+            while (input[i] && !ft_isspace(input[i]))
+            {
+                if (input[i] == '=' && (input[i + 1] == '"' || input[i + 1] == '\''))
+                {
+                    char quote = input[i + 1];
+                    i += 2; // Skip over = and opening quote
+                    while (input[i] && input[i] != quote)
+                        i++;
+                    if (input[i] == quote)
+                        i++; // include closing quote
+                    break;
+                }
+                i++;
+            }
+            char *token_val = ft_strndup(&input[start], i - start);
+            printf("\n\n\n");
+            printf("token_val: %s\n", token_val);
+            add_token(&tokens, create_token(TOKEN_WORD, token_val));
+            free(token_val);
+            continue;
+        }
+
         if (input[i] == '\'')
         {
             if (handle_single_quote(input, &i, &tokens) == 0)
-            {
-                free_tokens(tokens);
-                return NULL;
-            }
-            continue ;
+                return free_tokens(tokens), NULL;
+            continue;
         }
+
         if (input[i] == '"')
         {
             if (handle_double_quote(input, &i, &tokens) == 0)
-            {
-                free_tokens(tokens);
-                return NULL;
-            }
-            continue ;
+                return free_tokens(tokens), NULL;
+            continue;
         }
+
         if (ft_isspecialchar(input[i]))
             handle_special(input, &i, &tokens);
         else
             handle_word(input, &i, &tokens);
         i++;
     }
-    return (tokens);
+
+    return tokens;
 }

@@ -7,7 +7,8 @@ CFLAGS = -g -Wall -Wextra -Werror
 RL_FLAGS = -lreadline
 
 SRC = ./src/main.c ./src/minishell_loop.c \
-./src/utils/str_utils.c  \
+./src/utils/str_utils.c  ./src/utils/ft_strchr.c ./src/utils/ft_strjoin.c \
+./src/utils/ft_strnstr.c \
 ./src/tokenizer/tokenizer.c \
 ./src/tokenizer/tokenizer_utils/ft_check_char.c ./src/tokenizer/tokenizer_utils/handle_special.c \
 ./src/tokenizer/tokenizer_utils/handle_word.c ./src/tokenizer/tokenizer_utils/handle_quotes.c \
@@ -15,7 +16,12 @@ SRC = ./src/main.c ./src/minishell_loop.c \
 ./src/parser/parser.c ./src/parser/parser_utils/is_syntax_error.c ./src/parser/parser_utils/is_redirection.c \
 ./src/parser/parser_utils/free_ast.c \
 ./src/executor/executor.c \
-./src/executor/builtins/builtin_echo.c
+./src/executor/builtins/builtin_echo.c \
+./src/executor/builtins/builtin_pwd.c \
+./src/executor/builtins/builtin_cd.c \
+./src/executor/builtins/builtin_env.c \
+./src/executor/builtins/builtin_export.c \
+./src/env/init_env_list.c ./src/env/get_env_value.c ./src/env/update_env.c\
 
 OBJ = $(SRC:.c=.o)
 
