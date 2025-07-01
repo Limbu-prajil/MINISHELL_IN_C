@@ -1,0 +1,40 @@
+# Compiled object files
+*.o
+
+# Compiled binaries
+*.out
+*.a
+*.so
+*.dylib
+*.exe
+
+# Debug and coverage files
+*.gch
+*.gcno
+*.gcda
+*.gcov
+*.profraw
+*.profdata
+
+# macOS clutter
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+
+# Backup, swap, and temporary files
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
+*.log
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Your project binary - adjust if your binary has a different name
+/minishell
