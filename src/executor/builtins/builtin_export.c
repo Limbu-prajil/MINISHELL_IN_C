@@ -182,7 +182,7 @@ static void sort_string_array(char **arr, int size)
         j = i + 1;
         while (j < size)
         {
-            if (strcmp(arr[i], arr[j]) > 0) //need top use ft_strcmp instead of strcmp
+            if (ft_strcmp(arr[i], arr[j]) > 0)
             {
                 tmp = arr[i];
                 arr[i] = arr[j];

@@ -3,7 +3,7 @@
 int    handle_word(const char *input, size_t *i, t_token **tokens)
 {
     size_t  start = *i;
-    size_t  len = 0;
+    //size_t  len = 0;
     while (input[*i] && !ft_isspace(input[*i])
         && !ft_isspecialchar(input[*i]) && input[*i] != '\'' && input[*i] != '"')
     {
@@ -11,7 +11,7 @@ int    handle_word(const char *input, size_t *i, t_token **tokens)
             (*i) += 2;
         else
             (*i)++;
-        len++;
+        //len++;
     }
         
     char *raw;

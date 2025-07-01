@@ -6,7 +6,7 @@
 #include "minishell.h"
 #include "parser.h"
 #include "env.h"
-
+#include "util.h"
 
 void execute_ast(t_ast *ast, t_env **env_list);
 

@@ -8,7 +8,7 @@ RL_FLAGS = -lreadline
 
 SRC = ./src/main.c ./src/minishell_loop.c \
 ./src/utils/str_utils.c  ./src/utils/ft_strchr.c ./src/utils/ft_strjoin.c \
-./src/utils/ft_strnstr.c \
+./src/utils/ft_strnstr.c ./src/utils/ft_strcmp.c\
 ./src/tokenizer/tokenizer.c \
 ./src/tokenizer/tokenizer_utils/ft_check_char.c ./src/tokenizer/tokenizer_utils/handle_special.c \
 ./src/tokenizer/tokenizer_utils/handle_word.c ./src/tokenizer/tokenizer_utils/handle_quotes.c \
